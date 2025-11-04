@@ -1,4 +1,5 @@
 UnauthorizedError:
+  description: You are unauthorized
   content:
     application/json:
       schema:
@@ -6,6 +7,13 @@ UnauthorizedError:
 
 NotFoundError:
   description: Resorce not found
+  content:
+    application/json:
+      schema:
+        $ref: "#/schemas/Error"
+
+BadRequestError:
+  description: Bad request
   content:
     application/json:
       schema:

@@ -28,7 +28,7 @@ function BoardsListPage() {
                     body: {name: formData.get("name") as string}
                 })
             }}>
-                <input name="name" />
+                <input name="name" className="bg-pink-300 rounded-3xl"/>
                 <button type="submit" disabled={createBoardMutation.isPending}>
                     Create board
                 </button>
@@ -42,7 +42,7 @@ function BoardsListPage() {
                         </Button>
                     </CardHeader>
                     <CardFooter>
-                        <Button disabled={deleteBoardMutation.isPending} onClick={() => deleteBoardMutation.mutate({params: { path: { boardId: board.id } }})} variant="destructive">
+                        <Button disabled={deleteBoardMutation.isPending} onClick={() => deleteBoardMutation.mutate({params: { path: { boardId: board.id } }})} variant="destructive" className="cursor-pointer">
                             Delete
                         </Button>
                     </CardFooter>
