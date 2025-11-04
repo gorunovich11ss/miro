@@ -88,8 +88,8 @@ export interface paths {
     };
     "/auth/refresh": {
         parameters: {
-            query?: never;
-            header?: never;
+            query: never;
+            header: never;
             path?: never;
             cookie?: never;
         };
@@ -106,7 +106,18 @@ export interface paths {
                 };
             };
             requestBody?: never;
-            responses: never;
+            responses: {
+                /** @description Login successful */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["AuthResponse"];
+                    };
+                };
+                401: components["responses"]["UnauthorizedError"];
+            };
         };
         delete?: never;
         options?: never;
@@ -230,7 +241,7 @@ export interface components {
             email: string;
         };
         AuthResponse: {
-            accessToken?: string;
+            accessToken: string;
             user?: components["schemas"]["User"];
         };
         Error: {
